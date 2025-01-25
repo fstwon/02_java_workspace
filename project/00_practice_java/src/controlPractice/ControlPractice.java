@@ -12,8 +12,9 @@ public class ControlPractice {
 		// practice6();
 		// practice7();
 		// practice8();
-		practice9();
-		// practice10();
+		// practice9();
+		practice10();
+		// practice11();
 	}
 	public static void practice1() {
 		Scanner sc = new Scanner(System.in);
@@ -89,6 +90,10 @@ public class ControlPractice {
 			// 평균
 			double avg = (total / 3);
 			if(avg >= cutLineAvg) {
+				// 과목별 점수 출력
+				System.out.println("국어 : " + ko);
+				System.out.println("영어 : " + en);
+				System.out.println("수학 : " + math);
 				// 평균 60점 이상 합격, "축하합니다, 합격입니다!"
 				System.out.printf("합계 : %d\n", total);
 				System.out.printf("평균 : %.1f\n", avg);
@@ -271,27 +276,159 @@ public class ControlPractice {
 	public static void practice9() {
 		Scanner sc = new Scanner(System.in);
 		// 중간, 기말, 과제점수, 출석회수 입력, pass/fail 출력
+		
 		// 중간 20%
 		System.out.print("중간 고사 점수 : ");
-		int middleTest = sc.nextInt();
+		double middleTest = sc.nextDouble();
 		middleTest *= 0.2;
+		
 		// 기말 30%
 		System.out.print("기말 고사 점수 : ");
-		int finalTest = sc.nextInt();
+		double finalTest = sc.nextDouble();
 		finalTest *= 0.3;
+		
 		// 과제 30%
 		System.out.print("과제 점수 : ");
-		int assignment = sc.nextInt();
+		double assignment = sc.nextDouble();
 		assignment *= 0.3;
+		
 		// 출석 20%, 출석 비율은 입력값/20,
 		System.out.print("출석 회수 : ");
-		int attendance = sc.nextInt();
+		double attendance = sc.nextDouble();
+		double passAtt = 20 - (20 * 0.3);
 		
-		
-		// 총 점수 70점 이상 pass, 70점 미만 또는 결석 30% 이상 fail 
+		System.out.println("================= 결과 =================");
+		// 총 점수 70점 이상 pass, 70점 미만 또는 30% 이상 결석 fail
+		if(attendance < passAtt) {
+			System.out.printf("Fail [출석 회수 부족 (%.0f/20)]\n", attendance);
+		} else {
+			double total = middleTest + finalTest + assignment + attendance;
+			System.out.printf("중간 고사 점수(20) : %.1f\n", middleTest);
+			System.out.printf("기말 고사 점수(30) : %.1f\n", finalTest);
+			System.out.printf("과제 점수(30) : %.1f\n", assignment);
+			System.out.printf("출석 점수(20) : %.1f\n", attendance);
+			System.out.printf("총점 : %.1f\n", total);
+			if(total < 70) {
+				System.out.printf("Fail [점수 미달]\n", attendance);
+			} else {
+				System.out.print("PASS");
+			}			
+		}
 	}
-	
 	public static void practice10() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("실행할 기능을 선택하세요.");
+		System.out.println("1. 메뉴 출력");
+		System.out.println("2. 짝수/홀수");
+		System.out.println("3. 합격/불합격");
+		System.out.println("4. 계절");
+		System.out.println("5. 로그인");
+		System.out.println("6. 권한 확인");
+		System.out.println("7. BMI");
+		System.out.println("8. 계산기");
+		System.out.println("9. P/F");
+		System.out.println("11. 비밀번호 생성");
 		
+		System.out.print("선택 : ");
+		int selMenu = sc.nextInt();
+		
+		if(selMenu < 11) {
+			System.out.printf("(실습문제%d 실행)\n", selMenu);			
+		};
+		
+		// 위 실습 1 ~ 9까지 선택해서 실행
+		switch(selMenu) {
+			case 1:
+				practice1();
+				break;
+			case 2:
+				practice2();
+				break;
+			case 3:
+				practice3();
+				break;
+			case 4:
+				practice4();
+				break;
+			case 5:
+				practice5();
+				break;
+			case 6:
+				practice6();
+				break;
+			case 7:
+				practice7();
+				break;
+			case 8:
+				practice8();
+				break;
+			case 9:
+				practice9();
+				break;
+			case 11:
+				practice11();
+				break;
+			default: 
+				System.out.print("잘못 입력했습니다. 종료합니다.");
+		}
+	}
+	public static void practice11() {
+		// 중복 값 확인
+		// 중복 값이 있으면 "중복 값 있음" 출력 
+		// 제일 앞 자리 수의 값은 1 ~ 9 사이 정수. 0 < idx[0] < 10;
+		// 중복 값 없는 4자리면 생성 성공
+		// 정수 4자리 비밀번호 입력
+		Scanner sc = new Scanner(System.in);
+		System.out.print("비밀번호 입력(1000 ~ 9999) : ");
+		String pwd = sc.next();
+		
+		if(pwd.length() > 4) {
+			// 4자리 자리수가 안 맞으면 "자리 수 안 맞음" 출력
+			System.out.print("자리 수 안 맞음");
+		} else {
+			int strIdx = 3;
+			
+			boolean isDup = false;
+			switch(strIdx) {
+				case 3: 
+					char idxCh = pwd.charAt(strIdx);
+					int chIdx = pwd.indexOf(idxCh);
+					if(chIdx != strIdx) {
+						isDup = true;
+						break;
+					}
+					strIdx--;
+				case 2: 
+					idxCh = pwd.charAt(strIdx);
+					chIdx = pwd.indexOf(idxCh);
+					if(chIdx != strIdx) {
+						isDup = true;
+						break;
+					}
+					strIdx--;
+				case 1: 
+					idxCh = pwd.charAt(strIdx);
+					chIdx = pwd.indexOf(idxCh);
+					if(chIdx != strIdx) {
+						isDup = true;
+						break;
+					}
+					strIdx--;
+				case 0:
+					idxCh = pwd.charAt(strIdx);
+					chIdx = pwd.indexOf(idxCh);
+					if(chIdx != strIdx) {
+						isDup = true;
+						break;
+					}
+					strIdx--;
+				default: break;
+			}
+			if(isDup) {
+				System.out.print("중복 값 있음");
+			} else {
+				System.out.print("생성 성공");
+			}
+		}
 	}
 }
