@@ -14,7 +14,8 @@ public class LoopPractice {
 		// practice10();
 		// practice11();
 		// practice12();
-		practice13();
+		// practice13();
+		practice14();
 	}
 	public static void practice1() {
 		Scanner sc = new Scanner(System.in);
@@ -301,6 +302,43 @@ public class LoopPractice {
 	}
 	public static void practice13() {
 		Scanner sc = new Scanner(System.in);
-		// 정수 두개, 연산자 입력
+		// 정수 입력
+		// 1 ~ 입력한 정수 만큼 *을 하나씩 늘리면서 한줄 씩 추가
+		/*
+		 * 정수 입력: 4
+		 * *
+		 * **
+		 * ***
+		 * ****
+		 */
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		
+		for(int i = 1; i <= num; i++) {
+			for(int j = 1; j <= i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	public static void practice14() {
+		Scanner sc = new Scanner(System.in);
+		// 13 실습 문제 반대로
+		/*
+		 * 정수 입력: 4
+		 * ****
+		 * ***
+		 * **
+		 * *
+		 */
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		
+		for(int i = num; i > 0; i--) {
+			for(int j = i; j > 0; j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 }
