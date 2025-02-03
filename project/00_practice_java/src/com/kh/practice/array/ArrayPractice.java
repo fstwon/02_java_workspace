@@ -35,7 +35,6 @@ public class ArrayPractice {
 			isContains =false;
 			System.out.println("call do while");
 			for(int i = 0; i < arr.length; i++) {
-				
 				// 중복 검사
 				for(int j = 0; j < arr.length; j++) {
 					if(i != j && arr[i] == arr[j]) {
@@ -43,9 +42,7 @@ public class ArrayPractice {
 						int random = (int)(Math.random() * 10 + 1);
 						arr[i] = random;
 						isContains = true;
-						continue;
 					}
-					continue;
 				}
 			}
 		} while(isContains);
