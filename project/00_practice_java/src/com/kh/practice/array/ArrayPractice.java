@@ -23,16 +23,33 @@ public class ArrayPractice {
 		// 10개 정수형 배열 선언 및 할당
 		int[] arr = new int[10];
 		
-		// 인덱스 값 할당
+		// 1 ~ 10 사이 난수 중 중복 값이 없게 배열에 초기화 후 출력
+		// 인덱스 초기화
 		for(int i = 0; i < arr.length; i++) {
 			int random = (int)(Math.random() * 10 + 1);
 			arr[i] = random;
-			if(i == 0) {
-				continue;
-			}
 		}
+		boolean isContains = true;
 		
-		// 1 ~ 10 사이 난수 중 중복 값이 없게 배열에 초기화 후 출력
+		do {
+			isContains =false;
+			System.out.println("call do while");
+			for(int i = 0; i < arr.length; i++) {
+				
+				// 중복 검사
+				for(int j = 0; j < arr.length; j++) {
+					if(i != j && arr[i] == arr[j]) {
+						System.out.println("중복 값 있음 " + i + " " + j);
+						int random = (int)(Math.random() * 10 + 1);
+						arr[i] = random;
+						isContains = true;
+						continue;
+					}
+					continue;
+				}
+			}
+		} while(isContains);
+		
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
