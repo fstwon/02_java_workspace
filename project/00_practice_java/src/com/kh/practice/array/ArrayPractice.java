@@ -16,7 +16,125 @@ public class ArrayPractice {
 		// practice10();
 		// practice11();
 		// practice12();
-		practice13();
+		// practice13();
+		// practice14();
+		// practice15();
+		practice16();
+	}
+	public static void practice16() {
+		Scanner sc = new Scanner(System.in);
+		// 사용자가 입력한 배열의 길이 만큼 문자열 배열 선언 및 할당;
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int num = sc.nextInt();
+		sc.nextLine();
+		
+		String[] strArr = new String[num];
+		
+		// 배열의 인덱스에 넣을 값 사용자 입력 초기화
+		for(int i = 0; i < num; i++) { 
+			// 추가 인덱스에 값 입력
+			System.out.printf("%d번째 문자열 : ", i + 1);
+			strArr[i] = sc.nextLine();
+			if(i == strArr.length - 1) {
+				System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+				char answer = sc.next().charAt(0);
+				if(answer == 'Y' || answer == 'y') {
+					// 배열에 값 추가할지 질문 후 추가 개수 입력
+					System.out.print("더 입력하고 싶은 개수 : ");
+					num += sc.nextInt();
+					String[] copyArr = new String[strArr.length];
+					System.arraycopy(strArr, 0, copyArr, 0, strArr.length);
+					strArr = new String[num];
+					System.arraycopy(copyArr, 0, strArr, 0, copyArr.length);
+					sc.nextLine();
+				}
+			}
+		}
+		// 더 이상 출력 안할 시 배열 전체 값 출력
+		for(int i = 0; i < strArr.length; i++) {
+			if(i == 0) {
+				System.out.print("[");
+			}
+			System.out.print(strArr[i]);
+			if(i < strArr.length - 1) {
+				System.out.print(", ");	
+			}
+			if(i == strArr.length - 1) {
+				System.out.print("]");
+			}
+		}
+		
+	}
+	public static void practice15() {
+		Scanner sc = new Scanner(System.in);
+		// 문자열 입력
+		System.out.print("문자열 : ");
+		String str = sc.next();
+		int strLength = str.length();
+		
+		char[] chArr = new char[strLength];
+		int idx = 0;
+		// 초기화
+		for(int i = 0; i < strLength; i++) {
+			boolean isDup = false;
+			for(int j = 0; j < i; j++) {
+				if(str.charAt(i) == chArr[j]) {
+					isDup = true;
+					break;
+				}
+			}
+			if(!isDup) {
+				chArr[idx++] = str.charAt(i);
+			}
+		}
+		
+		// 문자 개수랑 문자 출력
+		System.out.print("문자열에 있는 문자 : ");
+		for(int i = 0; i < idx; i++) {
+			System.out.print(chArr[i]);
+			if(i < idx - 1) {
+				System.out.print(", ");	
+			}
+		}
+		System.out.println();
+		System.out.print("문자 개수 : " + (idx));
+	}
+	public static void practice14() {
+		// 로또 번호 생성
+		// 1 ~ 45, 6자리
+		// 중복 값 없음
+		// 오름차순 정렬 후 출력
+		// 배열 선언 및 할당
+		int[] lotto = new int[6];
+		// 중복 검사
+		for(int i = 0; i < lotto.length; i++) {
+			lotto[i] = (int)(Math.random() * 45 + 1);
+			for(int j = 0; j < i; j++) {
+				if(lotto[i] == lotto[j]) {
+					i--;
+					break;
+				}
+			}
+		}
+		// 오름차순 정렬
+		// * 배열 오름차순 정렬 메소드 java.util.Arrays, Arrays.sort(대상 배열);
+		for(int i = 0; i < lotto.length; i++) {
+			for(int j = 0; j < lotto.length; j++) {
+				if(i != j) {
+					if(lotto[i] < lotto[j]) {
+						int tmp = lotto[i];
+						lotto[i] = lotto[j];
+						lotto[j] = tmp;
+					}
+				}
+			}
+		}
+		
+		for(int i = 0; i < lotto.length; i++) {
+			System.out.print(lotto[i] + " ");			
+		}
+		
+
 	}
 	public static void practice13() {
 		Scanner sc = new Scanner(System.in);
@@ -33,12 +151,10 @@ public class ArrayPractice {
 		
 		do {
 			isContains =false;
-			System.out.println("call do while");
 			for(int i = 0; i < arr.length; i++) {
 				// 중복 검사
 				for(int j = 0; j < arr.length; j++) {
 					if(i != j && arr[i] == arr[j]) {
-						System.out.println("중복 값 있음 " + i + " " + j);
 						int random = (int)(Math.random() * 10 + 1);
 						arr[i] = random;
 						isContains = true;
@@ -69,7 +185,7 @@ public class ArrayPractice {
 			System.out.print(arr[i] + " ");
 			if(arr[i] < min) {
 				min = arr[i];
-			}
+			} 
 			if(arr[i] > max) {
 				max = arr[i];
 			}
