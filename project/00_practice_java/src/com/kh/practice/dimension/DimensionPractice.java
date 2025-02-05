@@ -18,7 +18,10 @@ public class DimensionPractice {
 		// 1. 강건강 2. 남나나 3. 도대담 4. 류라라 5. 문미미 6. 박보배
 		// 7. 송성실 8. 윤예의 9. 진재주 10. 차천축 11. 피풍표 12. 홍하하
 		// 1차원 배열에 학생 출석부 순 초기화
-		String[] arr = { "강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" };
+		String[] arr = { 
+			"강건강", "남나나", "도대담", "류라라", "문미미", "박보배", 
+			"송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" 
+		};
 		String[][] arr2 = new String[3][2];
 		String[][] arr3 = new String[3][2];
 		// 2열 3행으로 2차원 배열 2개 나눠
@@ -127,19 +130,27 @@ public class DimensionPractice {
 		// 0행 0열 ~ 2행 2열, 1 ~ 10 중 임의 정수 할당
 		for(int i = 0; i < arr.length; i++) {
 			for(int j = 0; j < arr[i].length; j++) {
-				if(j < arr[i].length - 1 && i < arr.length) {
+				if(j < arr[i].length - 1 && i < arr.length - 1) {
 					// 난수 생성
 					int random = (int)(Math.random() * 10 + 1);
 					// 할당
 					arr[i][j] = random;
-					// 행 마지막 인덱스에 이전 인덱스 값 합 복합 대입
+					// 열 마지막 인덱스에 이전 인덱스 값 합 복합 대입
 					arr[i][arr[i].length - 1] += arr[i][j];
+					// 행 마지막 인덱스에 이전 인덱스 값 합 복합 대입
+					arr[arr.length - 1][j] += arr[i][j];
+				} 
+				if(i < arr.length - 1 && j == arr[i].length - 1){
+					// i가 마지막 인덱스에 도달하지 못했을 경우
+					// j문을 확인하고 마지막 인덱스에서 (arr.length - 1, arr[i].length - 1) 위치에 
+					// 현재 행(i)의 마지막 열 값(arr[i].length - 1)을 합한다.
+					arr[arr.length - 1][arr[i].length - 1] += arr[i][j];
 				}
-				// 열 마지막 인덱스에 이전 인덱스 값 합 복합 대입
-				if(i >= arr.length - 1) {
-					System.out.printf("(%d, %d) : %-3d", j, i, arr[j][i]);
-					System.out.println();
-					arr[arr.length - 1][j] += arr[j][i];
+				if(j < arr[i].length - 1 && i == arr.length - 1) {
+					// j가 마지막 인덱스에 도달하지 못했을 경우 
+					// i문을 확인하고 마지막 인덱스에서 (arr.length - 1, arr[i].length - 1) 위치에 
+					// 현재 행(i)의 마지막 인덱스 이전 열 값을 합한다.
+					arr[arr.length - 1][arr[i].length - 1] += arr[i][j];
 				}
 			}
 		}
