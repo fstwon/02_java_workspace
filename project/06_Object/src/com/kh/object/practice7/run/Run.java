@@ -4,29 +4,43 @@ import com.kh.object.practice7.model.vo.Employee;
 public class Run {
 	public static void main(String[] args) {
 		Employee e = new Employee();
-		e.setEmpNo(1);
-		e.setEmpName("John");
-		e.setDept("Marketing");
-		e.setJob("Director");
-		e.setAge(30);
-		e.setGender('F');
-		e.setSalary(8000);
-		e.setBonusPoint(50);
-		e.setPhone("000-0000-0000");
-		e.setAddress("00000");
+		e.setEmpNo(100);
+		e.setEmpName("홍길동");
+		e.setDept("영업부");
+		e.setJob("과장");
+		e.setAge(25);
+		e.setGender('남');
+		e.setSalary(2500000);
+		e.setBonusPoint(0.05);
+		e.setPhone("000-1234-5678");
+		e.setAddress("서울시 강남구");
 		
 		System.out.println(
-				"EmpNo : " + e.getEmpNo() + "\n" +
-				"EmpName : " + e.getEmpName() + "\n" +
-				"Dept : " + e.getDept() + "\n" +
-				"Job : " + e.getJob() + "\n" +
-				"Age : " + e.getAge() + "\n" +
-				"Gender : " + e.getGender() + "\n" +
-				"Salary : " + e.getSalary() + "\n" +
-				"BonusPoint : " + e.getBonusPoint() + "\n" +
-				"Phone : " + e.getPhone() + "\n" +
-				"Address : " + e.getAddress()
+			"empNo" + " " +
+			"empName" +  " " +
+			"dept" + " " +
+			"job" + " " +
+			"age" +  " " +
+			"gender" + " " +
+			"salary" + " " + 
+			"bonusPoint" + " " + 
+			"phone" + " " + 
+			"address"
 		);
+
+		System.out.println(
+			e.getEmpNo() + " " +
+			e.getEmpName() + " " +
+			e.getDept() + " " +
+			e.getJob() + " " +
+			e.getAge() + " " +
+			e.getGender() + " " +
+			e.getSalary() + " " +
+			e.getBonusPoint() + " " +
+			e.getPhone() + " " +
+			e.getAddress() + " "
+		);
+		
 	}
 
 }
