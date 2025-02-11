@@ -1,4 +1,4 @@
-package com.kh.obejct.ex4;
+package com.kh.object.ex4;
 
 /*
  * 학생 정보

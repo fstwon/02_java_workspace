@@ -1,4 +1,4 @@
-package com.kh.obejct.ex4;
+package com.kh.object.ex4;
 import java.util.Scanner;
 
 public class Run {

@@ -1,4 +1,4 @@
-package com.kh.obejct.ex2;
+package com.kh.object.ex2;
 
 public class Student {
 	// 필드부
