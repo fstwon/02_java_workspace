@@ -18,5 +18,4 @@ public class Run {
 		PersonMenu pm = new PersonMenu();
 		pm.mainMenu();
 	}
-
 }
