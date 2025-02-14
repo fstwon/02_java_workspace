@@ -92,7 +92,7 @@ public class LibraryController {
 			}
 		} else if(b instanceof CookBook) {
 			// 도서가 요리책인 경우 요리책의 쿠폰 유무 확인
-			if(((CookBook)b).isCoupon()) {
+			if(mem != null && ((CookBook)b).isCoupon()) {
 				int couponCount = mem.getCouponCount();
 				// coupon = true 회원의 couponCount 1 증가
 				mem.setCouponCount(++couponCount);
