@@ -1,0 +1,4 @@
+기반 스트림 사용
+Hello world
+last line
+use try with resources
