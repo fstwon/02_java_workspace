@@ -1,4 +1,4 @@
-package com.kh.obejct.ex5;
+package com.kh.object.ex5;
 
 public class Person {
 	// 필드부

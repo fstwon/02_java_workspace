@@ -63,7 +63,6 @@ public class FileMenu {
 			// exit(끝) 이라고 입력하면 종료됩니다.
 			// 파일에 저장할 내용을 입력하세요.	
 			System.out.println("파일에 저장할 내용을 입력하세요.");
-			// “ex끝it”를 입력할 때까지 사용자가 입력하게 하고 그 값들을 String에 저장
 			System.out.println("ex끝it 이라고 입력하면 종료됩니다.");
 			// 내용 :
 			System.out.print("내용 : ");
@@ -71,7 +70,7 @@ public class FileMenu {
 			if(EXIT.equals(str)) {
 				break;
 			}
-			fileContent += str;
+			fileContent += str + "\n";
 		}
 		
 		String fileName = null;
@@ -129,12 +128,12 @@ public class FileMenu {
 			// exit(끝) 이라고 입력하면 종료됩니다.
 			System.out.println("ex끝it 이라고 입력하면 종료됩니다.");
 			// 내용 :
-			System.out.println("내용 : ");
+			System.out.print("내용 : ");
 			str = sc.next();
 			if(EXIT.equals(str)) {
 				break;
 			}
-			fileContent += str;
+			fileContent += str + "\n";
 		}
 		// ex끝it를 입력하면 반복문 종료 후 fc의 fileEdit()에 파일 명과 StringBuilder 전달
 		fc.fileEdit(fileName, fileContent);
